@@ -1,0 +1,87 @@
+name: Update Product Price
+
+on:
+  workflow_dispatch:
+    inputs:
+      product:
+        description: "Which product to update"
+        required: true
+        type: choice
+        options:
+          - oyster-mushroom
+          - cordyceps-powder
+      retail_price:
+        description: "New retail price in INR (e.g. 250)"
+        required: true
+        type: string
+      wholesale_price:
+        description: "New wholesale price in INR (leave empty to keep unchanged)"
+        required: false
+        type: string
+
+jobs:
+  update-price:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update price in products.ts
+        run: |
+          FILE="src/data/products.ts"
+          PRODUCT="${{ github.event.inputs.product }}"
+          RETAIL="${{ github.event.inputs.retail_price }}"
+          WHOLESALE="${{ github.event.inputs.wholesale_price }}"
+
+          # Validate retail price is a number
+          if ! [[ "$RETAIL" =~ ^[0-9]+$ ]]; then
+            echo "::error::Retail price must be a whole number (e.g. 250)"
+            exit 1
+          fi
+
+          # Find the product block and update price
+          if [ "$PRODUCT" = "oyster-mushroom" ]; then
+            sed -i "s/slug: \"oyster-mushroom\",/slug: \"oyster-mushroom\",/" "$FILE"
+            sed -i "/slug: \"oyster-mushroom\"/,/^  {/{s/price: [0-9]*/price: $RETAIL/}" "$FILE"
+            if [ -n "$WHOLESALE" ]; then
+              if ! [[ "$WHOLESALE" =~ ^[0-9]+$ ]]; then
+                echo "::error::Wholesale price must be a whole number"
+                exit 1
+              fi
+              sed -i "/slug: \"oyster-mushroom\"/,/^  {/{s/wholesalePrice: [0-9]*/wholesalePrice: $WHOLESALE/}" "$FILE"
+            fi
+          elif [ "$PRODUCT" = "cordyceps-powder" ]; then
+            sed -i "/slug: \"cordyceps-powder\"/,/^];/{s/price: [0-9]*/price: $RETAIL/}" "$FILE"
+            if [ -n "$WHOLESALE" ]; then
+              if ! [[ "$WHOLESALE" =~ ^[0-9]+$ ]]; then
+                echo "::error::Wholesale price must be a whole number"
+                exit 1
+              fi
+              if grep -A5 "slug: \"cordyceps-powder\"" "$FILE" | grep -q "wholesalePrice"; then
+                sed -i "/slug: \"cordyceps-powder\"/,/^];/{s/wholesalePrice: [0-9]*/wholesalePrice: $WHOLESALE/}" "$FILE"
+              else
+                sed -i "/slug: \"cordyceps-powder\"/,/^];/{s/price: $RETAIL,/price: $RETAIL,\n    wholesalePrice: $WHOLESALE,/}" "$FILE"
+              fi
+            fi
+          fi
+
+          echo "Updated $PRODUCT: retail ₹$RETAIL${WHOLESALE:+, wholesale ₹$WHOLESALE}"
+
+      - name: Verify build
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          PRODUCT="${{ github.event.inputs.product }}"
+          RETAIL="${{ github.event.inputs.retail_price }}"
+          git add src/data/products.ts
+          git commit -m "chore: update $PRODUCT price to ₹$RETAIL"
+          git push
