@@ -1,0 +1,161 @@
+name: Add New Product
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Product name (e.g. Lion's Mane Powder)"
+        required: true
+        type: string
+      hindi_name:
+        description: "Hindi name (e.g. लायन्स मेन पाउडर)"
+        required: true
+        type: string
+      slug:
+        description: "URL slug (e.g. lions-mane-powder) — lowercase, hyphens only"
+        required: true
+        type: string
+      price:
+        description: "Retail price in INR (whole number, e.g. 5000)"
+        required: true
+        type: string
+      wholesale_price:
+        description: "Wholesale price in INR (leave empty if none)"
+        required: false
+        type: string
+      weight:
+        description: "Weight/unit display (e.g. 100 g, 1 kg)"
+        required: true
+        type: string
+      form:
+        description: "Product form"
+        required: true
+        type: choice
+        options:
+          - fresh
+          - powder
+          - dried
+      description:
+        description: "Short product description (1-2 sentences)"
+        required: true
+        type: string
+      benefits:
+        description: "Health benefits summary (1-2 sentences)"
+        required: true
+        type: string
+      image_url:
+        description: "Image URL (Pexels or Unsplash, 800x800)"
+        required: true
+        type: string
+      tags:
+        description: "Tags, comma-separated (e.g. wellness,powder,immunity)"
+        required: true
+        type: string
+
+jobs:
+  add-product:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate inputs
+        run: |
+          PRICE="${{ github.event.inputs.price }}"
+          SLUG="${{ github.event.inputs.slug }}"
+          WHOLESALE="${{ github.event.inputs.wholesale_price }}"
+
+          if ! [[ "$PRICE" =~ ^[0-9]+$ ]]; then
+            echo "::error::Price must be a whole number"
+            exit 1
+          fi
+
+          if ! [[ "$SLUG" =~ ^[a-z0-9-]+$ ]]; then
+            echo "::error::Slug must be lowercase letters, numbers, and hyphens only"
+            exit 1
+          fi
+
+          if [ -n "$WHOLESALE" ] && ! [[ "$WHOLESALE" =~ ^[0-9]+$ ]]; then
+            echo "::error::Wholesale price must be a whole number"
+            exit 1
+          fi
+
+          # Check slug doesn't already exist
+          if grep -q "slug: \"$SLUG\"" src/data/products.ts; then
+            echo "::error::A product with slug '$SLUG' already exists"
+            exit 1
+          fi
+
+      - name: Add product to products.ts
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = 'src/data/products.ts';
+            let content = fs.readFileSync(path, 'utf8');
+
+            const name = `${{ github.event.inputs.name }}`;
+            const hindiName = `${{ github.event.inputs.hindi_name }}`;
+            const slug = `${{ github.event.inputs.slug }}`;
+            const price = parseInt(`${{ github.event.inputs.price }}`);
+            const wholesale = `${{ github.event.inputs.wholesale_price }}`;
+            const weight = `${{ github.event.inputs.weight }}`;
+            const form = `${{ github.event.inputs.form }}`;
+            const description = `${{ github.event.inputs.description }}`.replace(/"/g, '\\"');
+            const benefits = `${{ github.event.inputs.benefits }}`.replace(/"/g, '\\"');
+            const imageUrl = `${{ github.event.inputs.image_url }}`;
+            const tags = `${{ github.event.inputs.tags }}`.split(',').map(t => t.trim()).filter(Boolean);
+
+            // Calculate next ID
+            const idMatches = content.match(/id: "(\d+)"/g);
+            const maxId = idMatches
+              ? Math.max(...idMatches.map(m => parseInt(m.match(/\d+/)[0])))
+              : 0;
+            const newId = String(maxId + 1);
+
+            // Build new product entry
+            let entry = `  {\n`;
+            entry += `    id: "${newId}",\n`;
+            entry += `    name: "${name}",\n`;
+            entry += `    hindiName: "${hindiName}",\n`;
+            entry += `    slug: "${slug}",\n`;
+            entry += `    price: ${price},\n`;
+            if (wholesale) {
+              entry += `    wholesalePrice: ${parseInt(wholesale)},\n`;
+            }
+            entry += `    weight: "${weight}",\n`;
+            entry += `    description:\n`;
+            entry += `      "${description}",\n`;
+            entry += `    benefits:\n`;
+            entry += `      "${benefits}",\n`;
+            entry += `    imageUrl:\n`;
+            entry += `      "${imageUrl}",\n`;
+            entry += `    tags: [${tags.map(t => `"${t}"`).join(', ')}],\n`;
+            entry += `    featured: false,\n`;
+            entry += `    inStock: true,\n`;
+            entry += `    form: "${form}",\n`;
+            entry += `  },\n`;
+
+            // Insert before the closing ];
+            content = content.replace(/\n];\s*$/, `\n${entry}];\n`);
+
+            fs.writeFileSync(path, content);
+            console.log(`Added product: ${name} (₹${price}/${weight})`);
+
+      - name: Verify build
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          NAME="${{ github.event.inputs.name }}"
+          git add src/data/products.ts
+          git commit -m "feat: add new product — $NAME"
+          git push
