@@ -5,8 +5,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { useLang } from "@/lib/lang";
 
 export function HeroSection() {
+  const { t } = useLang();
+
   return (
     <section className="relative min-h-[90vh] overflow-hidden pt-20" aria-labelledby="hero-heading">
       {/* Background gradient */}
@@ -24,23 +27,22 @@ export function HeroSection() {
               id="hero-heading"
               className="font-serif text-display-lg font-bold tracking-tight text-forest"
             >
-              Farm-fresh
+              {t("hero.title1")}
               <br />
-              mushrooms,
+              {t("hero.title2")}
               <br />
-              <span className="italic text-terracotta">delivered</span> in 24hrs.
+              <span className="italic text-terracotta">{t("hero.title3")}</span> {t("hero.title4")}
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-char/70">
-              Pesticide-free, same-day harvested oyster mushrooms & cordyceps from our farm in
-              Kishangarh. Delivering across India.
+              {t("hero.subtitle")}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" asChild>
-                <Link href="/shop">Order now</Link>
+                <Link href="/shop">{t("hero.orderNow")}</Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
                 <a href="https://wa.me/919928901003" target="_blank" rel="noopener noreferrer">
-                  WhatsApp us
+                  {t("hero.whatsapp")}
                 </a>
               </Button>
             </div>

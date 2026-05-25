@@ -10,6 +10,7 @@ import { useCartDrawerStore } from "@/store/cart-drawer";
 import type { Product } from "@/data/products";
 import { formatPrice } from "@/lib/content";
 import { track } from "@/lib/analytics";
+import { useLang } from "@/lib/lang";
 
 interface ProductCardProps {
   product: Product;
@@ -18,6 +19,7 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const addItem = useCartStore((s) => s.addItem);
   const openCart = useCartDrawerStore((s) => s.open);
+  const { lang, t } = useLang();
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -58,8 +60,10 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Info */}
         <div className="flex flex-1 flex-col p-4">
-          <h3 className="font-serif text-lg font-semibold text-forest">{product.name}</h3>
-          <p className="text-xs text-char/50">{product.hindiName}</p>
+          <h3 className="font-serif text-lg font-semibold text-forest">
+            {lang === "hi" ? product.hindiName : product.name}
+          </h3>
+          {lang === "en" && <p className="text-xs text-char/50">{product.hindiName}</p>}
           <p className="mt-1 text-xs text-char/60">{product.weight}</p>
           <div className="mt-auto flex items-center justify-between pt-3">
             <span className="font-serif text-lg font-bold text-char">

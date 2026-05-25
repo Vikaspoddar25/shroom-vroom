@@ -25,7 +25,7 @@ const articles = [
     slug: "health-benefits-oyster-mushrooms",
     title: "Why Oyster Mushrooms Are a Superfood",
     excerpt: "Immune support, cholesterol management, and protein — all in one.",
-    image: "https://images.unsplash.com/photo-1590864916822-6d30b38e23e0?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=600&h=400&fit=crop",
     category: "Health",
   },
 ];

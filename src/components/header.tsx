@@ -12,13 +12,14 @@ import { Container } from "@/components/ui/container";
 import { useCartStore } from "@/store/cart";
 import { useCartDrawerStore } from "@/store/cart-drawer";
 import { cn } from "@/lib/utils";
+import { useLang } from "@/lib/lang";
 
 const navLinks = [
-  { href: "/shop", label: "Shop" },
-  { href: "/wholesale", label: "Wholesale" },
-  { href: "/our-story", label: "Our Story" },
-  { href: "/learn", label: "Learn" },
-  { href: "/contact", label: "Contact" },
+  { href: "/shop", labelKey: "nav.shop" },
+  { href: "/wholesale", labelKey: "nav.wholesale" },
+  { href: "/our-story", labelKey: "nav.ourStory" },
+  { href: "/learn", labelKey: "nav.learn" },
+  { href: "/contact", labelKey: "nav.contact" },
 ];
 
 export function Header() {
@@ -26,6 +27,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const totalItems = useCartStore((s) => s.totalItems());
   const openCart = useCartDrawerStore((s) => s.open);
+  const { t } = useLang();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -54,7 +56,7 @@ export function Header() {
                   href={link.href}
                   className="text-sm font-medium text-char transition-colors hover:text-terracotta"
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               </li>
             ))}
@@ -130,7 +132,7 @@ export function Header() {
                   onClick={() => setMobileOpen(false)}
                   className="font-serif text-2xl font-medium text-forest transition-colors hover:text-terracotta"
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               ))}
             </nav>
