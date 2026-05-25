@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "Shroom Vroom",
     title: "Shroom Vroom — Fresh Mushrooms, Delivered in 24hrs",
     description:
-      "Pesticide-free oyster mushrooms & cordyceps from our farm in Kishangarh, Rajasthan. Free delivery above ₹1,000.",
+      "Pesticide-free oyster mushrooms & cordyceps from our farm in Kishangarh, Rajasthan. Free delivery across India above ₹5,000.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
   twitter: {

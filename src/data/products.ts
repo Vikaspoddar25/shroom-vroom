@@ -48,7 +48,7 @@ export const products: Product[] = [
     benefits:
       "Boosts energy & stamina naturally. Enhances oxygen utilization and athletic performance. Supports respiratory health and kidney function. Powerful adaptogen for stress relief.",
     imageUrl:
-      "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=800&h=800&fit=crop",
+      "https://images.pexels.com/photos/14772118/pexels-photo-14772118.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop",
     tags: ["wellness", "powder", "immunity"],
     featured: true,
     inStock: true,

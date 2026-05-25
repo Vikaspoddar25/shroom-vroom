@@ -17,7 +17,7 @@ const articles = [
     title: "Mushroom Biryani with Oyster Mushrooms",
     excerpt:
       "A fragrant, layered biryani that showcases the meaty texture of fresh oyster mushrooms. Perfect for Sunday lunch.",
-    image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&h=500&fit=crop",
+    image: "https://images.pexels.com/photos/12669168/pexels-photo-12669168.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
     category: "Recipe",
     date: "2025",
   },
@@ -26,7 +26,7 @@ const articles = [
     title: "Crispy Mushroom 65 — Better Than Chicken",
     excerpt:
       "Spicy, crunchy, and 100% plant-based. A South Indian classic reimagined with fresh oyster mushrooms.",
-    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&h=500&fit=crop",
+    image: "https://images.pexels.com/photos/5644975/pexels-photo-5644975.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
     category: "Recipe",
     date: "2025",
   },
@@ -35,7 +35,7 @@ const articles = [
     title: "Why Oyster Mushrooms Are a Superfood",
     excerpt:
       "Immune support, cholesterol management, high protein — discover why oyster mushrooms should be a staple in your diet.",
-    image: "https://images.unsplash.com/photo-1590864916822-6d30b38e23e0?w=800&h=500&fit=crop",
+    image: "https://images.pexels.com/photos/8948950/pexels-photo-8948950.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
     category: "Health",
     date: "2025",
   },
@@ -44,7 +44,7 @@ const articles = [
     title: "Creamy Mushroom Curry — Everyday Dal Alternative",
     excerpt:
       "A rich, coconut-milk based curry that pairs perfectly with roti or rice. Ready in 20 minutes.",
-    image: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=800&h=500&fit=crop",
+    image: "https://images.pexels.com/photos/35041661/pexels-photo-35041661.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
     category: "Recipe",
     date: "2025",
   },
@@ -53,7 +53,7 @@ const articles = [
     title: "Cordyceps: The Energy Mushroom",
     excerpt:
       "How cordyceps can boost your stamina, support your lungs, and improve athletic performance naturally.",
-    image: "https://images.unsplash.com/photo-1552825897-bb2e4e190e70?w=800&h=500&fit=crop",
+    image: "https://images.pexels.com/photos/14772118/pexels-photo-14772118.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
     category: "Health",
     date: "2025",
   },
@@ -62,7 +62,7 @@ const articles = [
     title: "How to Store Fresh Mushrooms at Home",
     excerpt:
       "Simple tips to keep your oyster mushrooms fresh for longer — paper bags, ventilation, and what to avoid.",
-    image: "https://images.unsplash.com/photo-1504700610630-ac6bc8db4da2?w=800&h=500&fit=crop",
+    image: "https://images.pexels.com/photos/6805771/pexels-photo-6805771.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
     category: "Guide",
     date: "2025",
   },

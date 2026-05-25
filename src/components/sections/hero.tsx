@@ -65,8 +65,8 @@ export function HeroSection() {
             </div>
             <div className="absolute bottom-0 left-0 h-[55%] w-[55%] overflow-hidden rounded-organic border-4 border-cream shadow-xl">
               <Image
-                src="https://images.unsplash.com/photo-1620891549027-942fdc95d3f5?w=600&h=600&fit=crop"
-                alt="Lion's Mane mushroom with cascading white spines"
+                src="https://images.pexels.com/photos/2478421/pexels-photo-2478421.jpeg?auto=compress&cs=tinysrgb&w=600&h=600&fit=crop"
+                alt="Hands harvesting fresh oyster mushrooms from substrate in indoor farm"
                 fill
                 className="object-cover"
                 sizes="25vw"

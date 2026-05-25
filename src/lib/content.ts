@@ -29,9 +29,9 @@ export function formatPrice(price: number): string {
 
 /** Delivery fee logic */
 export const DELIVERY_CONFIG = {
-  freeAbove: 1000,
+  freeAbove: 5000,
   charge: 50,
-  areas: ["Jaipur", "Ajmer", "Kishangarh"],
+  areas: ["All India"],
 } as const;
 
 export function getDeliveryCharge(subtotal: number): number {
