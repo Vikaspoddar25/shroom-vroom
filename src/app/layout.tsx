@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   description:
     "Farm-fresh, pesticide-free oyster mushrooms & cordyceps powder delivered within 24 hours. Serving Jaipur, Ajmer & Kishangarh, Rajasthan.",
-  metadataBase: new URL("https://shroomvroom.com"),
+  metadataBase: new URL("https://shroom-vroom.vercel.app"),
   openGraph: {
     type: "website",
     locale: "en_IN",
