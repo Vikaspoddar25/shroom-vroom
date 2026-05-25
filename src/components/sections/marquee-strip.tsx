@@ -5,7 +5,7 @@ const items = [
   "🌿 100% pesticide-free",
   "♻️ Compostable packaging",
   "🚚 Farm-to-fork in 24hrs",
-  "📍 Jaipur · Ajmer · Kishangarh",
+  "📍 Delivering across India",
   "💚 Locally grown in Rajasthan",
 ];
 

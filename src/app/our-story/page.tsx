@@ -34,8 +34,8 @@ export default function OurStoryPage() {
       {/* Full-bleed image */}
       <div className="relative h-[50vh] min-h-[400px]">
         <Image
-          src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1600&h=800&fit=crop"
-          alt="Inside the Shroom Vroom growing facility — rows of oyster mushrooms on shelves"
+          src="https://images.pexels.com/photos/2478421/pexels-photo-2478421.jpeg?auto=compress&cs=tinysrgb&w=1600&h=800&fit=crop"
+          alt="Hands harvesting fresh oyster mushrooms from substrate in indoor farm"
           fill
           className="object-cover"
           sizes="100vw"
@@ -66,8 +66,8 @@ export default function OurStoryPage() {
               </p>
               <p>
                 Today, Shroom Vroom delivers fresh Oyster Mushrooms and Cordyceps Powder
-                across Jaipur, Ajmer, and Kishangarh — with plans to expand across Rajasthan
-                and beyond.
+                across India — from our farm in Kishangarh, Rajasthan to kitchens
+                nationwide.
               </p>
             </div>
           </FadeIn>

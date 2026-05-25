@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CartDrawer } from "@/components/cart-drawer";
+import { LangProvider } from "@/lib/lang";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Shroom Vroom",
   },
   description:
-    "Farm-fresh, pesticide-free oyster mushrooms & cordyceps powder delivered within 24 hours. Serving Jaipur, Ajmer & Kishangarh, Rajasthan.",
+    "Farm-fresh, pesticide-free oyster mushrooms & cordyceps powder delivered within 24 hours across India. Farm in Kishangarh, Rajasthan.",
   metadataBase: new URL("https://shroom-vroom.vercel.app"),
   openGraph: {
     type: "website",
@@ -48,12 +49,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${inter.variable} ${fraunces.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className="font-sans">
-        <Header />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <CartDrawer />
+        <LangProvider>
+          <Header />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <CartDrawer />
+        </LangProvider>
 
         {/* Organization JSON-LD */}
         <script

@@ -71,7 +71,7 @@ export default function ContactPage() {
                 <div>
                   <p className="font-medium text-char">Farm Location</p>
                   <p className="text-sm text-char/60">Kishangarh, Ajmer, Rajasthan</p>
-                  <p className="mt-1 text-xs text-char/40">Delivering to Jaipur, Ajmer & Kishangarh</p>
+                  <p className="mt-1 text-xs text-char/40">Delivering across India</p>
                 </div>
               </div>
             </div>

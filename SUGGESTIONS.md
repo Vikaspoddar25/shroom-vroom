@@ -27,12 +27,6 @@
 - Embed in the Learn section
 - Shows fresh Shroom Vroom mushrooms being cooked
 
-### 5. Bulk/Wholesale Order Form
-- Separate page for restaurants, caterers, hotels
-- Minimum order: 5kg
-- Custom pricing tiers based on quantity
-- Direct WhatsApp to Vikas for B2B
-
 ### 6. Seasonal Product Drops
 - Limited-edition varieties (e.g., Pink Oyster, King Oyster)
 - "Coming Soon" countdown timer
@@ -47,15 +41,6 @@
 ---
 
 ## Nice to Have
-
-### 8. Dark Mode
-- Toggle in header
-- Already have earthy colour palette that works in both modes
-
-### 9. Multi-language Support (Hindi)
-- Hindi translation for all product descriptions
-- `hindiName` already exists — extend to full page translations
-- RTL not needed for Hindi (LTR script)
 
 ### 10. Loyalty Points System
 - 1 point per ₹10 spent

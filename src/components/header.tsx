@@ -5,6 +5,8 @@ import Link from "next/link";
 import { ShoppingBag, Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/logo";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { LangToggle } from "@/components/lang-toggle";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { useCartStore } from "@/store/cart";
@@ -13,6 +15,7 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/shop", label: "Shop" },
+  { href: "/wholesale", label: "Wholesale" },
   { href: "/our-story", label: "Our Story" },
   { href: "/learn", label: "Learn" },
   { href: "/contact", label: "Contact" },
@@ -74,6 +77,9 @@ export function Header() {
                 <MessageCircle className="h-5 w-5" />
               </a>
             </Button>
+
+            <ThemeToggle />
+            <LangToggle />
 
             {/* Cart button */}
             <Button

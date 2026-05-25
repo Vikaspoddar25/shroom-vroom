@@ -12,6 +12,15 @@
     --mist: 232 226 211;
   }
 
+  .dark {
+    --forest: 172 211 186;
+    --moss: 132 178 147;
+    --cream: 26 28 26;
+    --terracotta: 219 137 104;
+    --char: 235 230 220;
+    --mist: 42 44 42;
+  }
+
   html {
     scroll-behavior: smooth;
   }

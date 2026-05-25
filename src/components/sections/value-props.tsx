@@ -22,7 +22,7 @@ const props = [
     icon: Truck,
     title: "Farm-to-Fork in 24hrs",
     description:
-      "Free delivery across India on orders above ₹5,000. Local delivery in Jaipur, Ajmer & Kishangarh.",
+      "Free delivery across India on orders above ₹5,000. Same-day harvest, next-day delivery.",
   },
   {
     icon: ChefHat,

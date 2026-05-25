@@ -7,7 +7,7 @@ import { FadeIn } from "@/components/fade-in";
 export const metadata: Metadata = {
   title: "Subscribe — Coming Soon",
   description:
-    "Weekly mushroom subscription boxes coming soon to Jaipur, Ajmer & Kishangarh.",
+    "Weekly mushroom subscription boxes coming soon — delivering across India.",
 };
 
 export default function SubscribePage() {

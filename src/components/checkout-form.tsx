@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -28,7 +29,26 @@ const schema = z.object({
   notes: z.string().optional(),
 });
 
+const STORAGE_KEY = "shroom-vroom-checkout";
+
 type FormData = z.infer<typeof schema>;
+
+function getSavedDetails(): Partial<FormData> {
+  if (typeof window === "undefined") return {};
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveDetails(data: FormData) {
+  try {
+    const { notes, ...toSave } = data;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+  } catch {}
+}
 
 /** Build a WhatsApp-friendly order message */
 function buildOrderMessage(data: FormData, items: ReturnType<typeof useCartStore.getState>["items"], subtotal: number, delivery: number) {
@@ -65,9 +85,22 @@ export function CheckoutForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+    watch,
+  } = useForm<FormData>({ resolver: zodResolver(schema), defaultValues: getSavedDetails() });
+
+  // Save form details to localStorage on change
+  const watchedFields = watch();
+  useEffect(() => {
+    const { notes, ...toSave } = watchedFields;
+    if (toSave.name || toSave.phone || toSave.address) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
+      } catch {}
+    }
+  }, [watchedFields]);
 
   const onSubmit = (data: FormData) => {
+    saveDetails(data);
     const message = buildOrderMessage(data, items, sub, delivery);
 
     // Open WhatsApp with pre-filled message

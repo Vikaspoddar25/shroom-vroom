@@ -32,7 +32,7 @@ export function HeroSection() {
             </h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-char/70">
               Pesticide-free, same-day harvested oyster mushrooms & cordyceps from our farm in
-              Kishangarh. Delivering to Jaipur, Ajmer & Kishangarh.
+              Kishangarh. Delivering across India.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" asChild>

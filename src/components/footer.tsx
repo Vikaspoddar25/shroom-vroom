@@ -8,6 +8,7 @@ const footerLinks = {
     { label: "All Products", href: "/shop" },
     { label: "Fresh Mushrooms", href: "/shop?tag=fresh" },
     { label: "Wellness", href: "/shop?tag=wellness" },
+    { label: "Wholesale", href: "/wholesale" },
   ],
   learn: [
     { label: "Recipes", href: "/learn" },
