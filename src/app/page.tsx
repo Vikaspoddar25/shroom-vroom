@@ -5,6 +5,7 @@ import { FeaturedProducts } from "@/components/sections/featured-products";
 import { StoryTeaser } from "@/components/sections/story-teaser";
 import { LearnTeaser } from "@/components/sections/learn-teaser";
 import { Testimonials } from "@/components/sections/testimonials";
+import { FeedbackCTA } from "@/components/sections/feedback-cta";
 import { Newsletter } from "@/components/sections/newsletter";
 
 export default function HomePage() {
@@ -17,6 +18,7 @@ export default function HomePage() {
       <StoryTeaser />
       <LearnTeaser />
       <Testimonials />
+      <FeedbackCTA />
       <Newsletter />
     </>
   );

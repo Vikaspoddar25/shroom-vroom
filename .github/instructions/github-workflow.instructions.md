@@ -1,13 +1,17 @@
 ---
-description: "Use when writing or editing any file in the Shroom Vroom project. Reminds Copilot to always offer to commit and push changes to GitHub after they are accepted."
+description: "Use when writing or editing any file in the Shroom Vroom project. Copilot must automatically commit and push after every change."
 applyTo: "src/**"
 ---
 
-# GitHub Commit Reminder
+# Auto Commit & Deploy
 
-After making any change to files under `src/`, remind the user:
+After completing ANY change (code edits, new files, fixes, updates), Copilot MUST automatically:
+1. Run `npm run build` to verify the build passes
+2. Run `git add -A && git commit -m "<area>: <short description>" && git push origin main`
 
-> "Changes saved. Run the **Push Changes to GitHub** prompt (`/github-commit`) to commit and push to `Vikaspoddar25/shroom-vroom` — Vercel will auto-deploy on push."
+Do NOT ask the user whether to commit — just do it. Vercel auto-deploys on every push to `main`.
+
+If the build fails, fix the error first, then commit and push.
 
 ## Git Conventions
 - Remote: `origin` → `https://github.com/Vikaspoddar25/shroom-vroom`

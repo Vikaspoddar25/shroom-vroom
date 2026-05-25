@@ -94,7 +94,7 @@ const articles: Record<
     title: "Why Oyster Mushrooms Are a Superfood",
     category: "Health",
     image:
-      "https://images.pexels.com/photos/8948950/pexels-photo-8948950.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop",
+      "https://images.pexels.com/photos/6805771/pexels-photo-6805771.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop",
     content: [
       "## Why Oyster Mushrooms Are a Superfood",
       "Oyster mushrooms (Pleurotus ostreatus) are one of the most nutritious and versatile mushrooms available. Here's why they deserve a regular spot in your kitchen.",
@@ -267,13 +267,15 @@ export default async function LearnArticlePage({ params }: PageProps) {
             Back to Recipes & Tips
           </Link>
 
-          <span className="text-xs font-medium uppercase tracking-wider text-terracotta">
-            {article.category}
-          </span>
+          <div className="mt-4">
+            <span className="text-xs font-medium uppercase tracking-wider text-terracotta">
+              {article.category}
+            </span>
 
-          <h1 className="mt-2 font-serif text-display-md font-bold text-forest">
-            {article.title}
-          </h1>
+            <h1 className="mt-2 font-serif text-display-md font-bold text-forest">
+              {article.title}
+            </h1>
+          </div>
         </FadeIn>
 
         <FadeIn delay={0.1}>

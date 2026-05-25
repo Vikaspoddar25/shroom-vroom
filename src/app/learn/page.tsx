@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { FadeIn } from "@/components/fade-in";
+import { LearnArticles } from "@/components/learn-articles";
 
 export const metadata: Metadata = {
   title: "Learn — Recipes & Health Tips",
@@ -35,7 +34,7 @@ const articles = [
     title: "Why Oyster Mushrooms Are a Superfood",
     excerpt:
       "Immune support, cholesterol management, high protein — discover why oyster mushrooms should be a staple in your diet.",
-    image: "https://images.pexels.com/photos/8948950/pexels-photo-8948950.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
+    image: "https://images.pexels.com/photos/6805771/pexels-photo-6805771.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
     category: "Health",
     date: "2025",
   },
@@ -81,38 +80,7 @@ export default function LearnPage() {
           </p>
         </FadeIn>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {articles.map((article, i) => (
-            <FadeIn key={article.slug} delay={i * 0.05}>
-              <Link
-                href={`/learn/${article.slug}`}
-                className="group flex flex-col overflow-hidden rounded-organic border border-mist bg-white/60 transition-shadow hover:shadow-md"
-              >
-                <div className="relative aspect-[8/5] overflow-hidden">
-                  <Image
-                    src={article.image}
-                    alt={article.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-medium uppercase tracking-wider text-terracotta">
-                      {article.category}
-                    </span>
-                    <span className="text-xs text-char/40">{article.date}</span>
-                  </div>
-                  <h2 className="mt-2 font-serif text-lg font-semibold text-forest transition-colors group-hover:text-terracotta">
-                    {article.title}
-                  </h2>
-                  <p className="mt-2 text-sm text-char/60">{article.excerpt}</p>
-                </div>
-              </Link>
-            </FadeIn>
-          ))}
-        </div>
+        <LearnArticles articles={articles} />
       </Container>
     </Section>
   );

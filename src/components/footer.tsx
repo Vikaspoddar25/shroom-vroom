@@ -115,7 +115,7 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-cream/10 pt-8 md:flex-row">
           <p className="text-xs text-cream/50">© {new Date().getFullYear()} Shroom Vroom. All rights reserved.</p>
           <p className="text-xs text-cream/50">
-            Delivering to Jaipur, Ajmer & Kishangarh
+            Delivering across India
           </p>
         </div>
       </Container>

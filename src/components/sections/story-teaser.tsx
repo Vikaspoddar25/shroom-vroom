@@ -16,8 +16,8 @@ export function StoryTeaser() {
           <FadeIn>
             <div className="relative aspect-[4/5] overflow-hidden rounded-organic">
               <Image
-                src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&h=1000&fit=crop"
-                alt="Mushroom farm growing room with rows of oyster mushrooms"
+                src="https://images.pexels.com/photos/2478421/pexels-photo-2478421.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop"
+                alt="Hands harvesting fresh oyster mushrooms from substrate in indoor farm"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -43,7 +43,7 @@ export function StoryTeaser() {
             <p className="mt-4 leading-relaxed text-char/60">
               Most mushrooms you buy sit in cold storage for days. Ours are harvested the same
               morning you order, packed in compostable material, and delivered within 24 hours
-              across Jaipur, Ajmer & Kishangarh.
+              across India.
             </p>
             <Button variant="outline" className="mt-8" asChild>
               <Link href="/our-story">Read our full story →</Link>
