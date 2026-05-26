@@ -47,7 +47,7 @@ export function LearnArticles({ articles }: { articles: Article[] }) {
           <FadeIn key={article.slug} delay={i * 0.05}>
             <Link
               href={`/learn/${article.slug}`}
-              className="group flex flex-col overflow-hidden rounded-organic border border-mist bg-white/60 transition-shadow hover:shadow-md"
+              className="group flex flex-col overflow-hidden rounded-organic border border-mist bg-white/60 dark:bg-[#2a2c2a] transition-shadow hover:shadow-md"
             >
               <div className="relative aspect-[8/5] overflow-hidden">
                 <Image

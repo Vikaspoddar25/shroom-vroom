@@ -5,6 +5,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import { useLang } from "@/lib/lang";
 
 const schema = z.object({
   businessName: z.string().min(2, "Business name is required"),
@@ -22,6 +23,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export function WholesaleForm() {
+  const { t } = useLang();
   const {
     register,
     handleSubmit,
@@ -48,12 +50,12 @@ ${data.notes ? `*Notes:* ${data.notes}` : ""}`;
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="ws-business" className="mb-1.5 block text-sm font-medium text-char">
-            Business Name *
+            {t("wholesale.businessName")} *
           </label>
           <input
             id="ws-business"
             {...register("businessName")}
-            className="w-full rounded-lg border border-mist bg-white px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
+            className="w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
             placeholder="e.g. Taj Hotel, Jaipur"
           />
           {errors.businessName && <p className="mt-1 text-xs text-red-500">{errors.businessName.message}</p>}
@@ -61,12 +63,12 @@ ${data.notes ? `*Notes:* ${data.notes}` : ""}`;
 
         <div>
           <label htmlFor="ws-contact" className="mb-1.5 block text-sm font-medium text-char">
-            Contact Person *
+            {t("wholesale.contactPerson")} *
           </label>
           <input
             id="ws-contact"
             {...register("contactPerson")}
-            className="w-full rounded-lg border border-mist bg-white px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
+            className="w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
           />
           {errors.contactPerson && <p className="mt-1 text-xs text-red-500">{errors.contactPerson.message}</p>}
         </div>
@@ -75,13 +77,13 @@ ${data.notes ? `*Notes:* ${data.notes}` : ""}`;
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="ws-phone" className="mb-1.5 block text-sm font-medium text-char">
-            WhatsApp Number *
+            {t("wholesale.phone")} *
           </label>
           <input
             id="ws-phone"
             {...register("phone")}
             type="tel"
-            className="w-full rounded-lg border border-mist bg-white px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
+            className="w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
             placeholder="9876543210"
           />
           {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>}
@@ -89,12 +91,12 @@ ${data.notes ? `*Notes:* ${data.notes}` : ""}`;
 
         <div>
           <label htmlFor="ws-city" className="mb-1.5 block text-sm font-medium text-char">
-            City *
+            {t("wholesale.city")} *
           </label>
           <input
             id="ws-city"
             {...register("city")}
-            className="w-full rounded-lg border border-mist bg-white px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
+            className="w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
           />
           {errors.city && <p className="mt-1 text-xs text-red-500">{errors.city.message}</p>}
         </div>
@@ -103,12 +105,12 @@ ${data.notes ? `*Notes:* ${data.notes}` : ""}`;
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="ws-qty" className="mb-1.5 block text-sm font-medium text-char">
-            Estimated Quantity (kg/week) *
+            {t("wholesale.quantity")} *
           </label>
           <select
             id="ws-qty"
             {...register("quantity")}
-            className="w-full rounded-lg border border-mist bg-white px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
+            className="w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
           >
             <option value="">Select</option>
             <option value="25-50 kg">25–50 kg</option>
@@ -121,12 +123,12 @@ ${data.notes ? `*Notes:* ${data.notes}` : ""}`;
 
         <div>
           <label htmlFor="ws-freq" className="mb-1.5 block text-sm font-medium text-char">
-            Delivery Frequency *
+            {t("wholesale.frequency")} *
           </label>
           <select
             id="ws-freq"
             {...register("frequency")}
-            className="w-full rounded-lg border border-mist bg-white px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
+            className="w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
           >
             <option value="">Select</option>
             <option value="Daily">Daily</option>
@@ -140,20 +142,20 @@ ${data.notes ? `*Notes:* ${data.notes}` : ""}`;
 
       <div>
         <label htmlFor="ws-notes" className="mb-1.5 block text-sm font-medium text-char">
-          Additional Notes
+          {t("wholesale.notes")}
         </label>
         <textarea
           id="ws-notes"
           {...register("notes")}
           rows={3}
-          className="w-full rounded-lg border border-mist bg-white px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
+          className="w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 py-2.5 text-sm text-char outline-none focus:border-moss focus:ring-1 focus:ring-moss"
           placeholder="Special requirements, preferred delivery time, etc."
         />
       </div>
 
       <Button type="submit" size="lg" className="w-full sm:w-auto">
         <MessageCircle className="mr-2 h-4 w-4" />
-        Send enquiry via WhatsApp
+        {t("wholesale.submit")}
       </Button>
     </form>
   );

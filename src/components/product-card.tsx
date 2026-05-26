@@ -32,7 +32,7 @@ export function ProductCard({ product }: ProductCardProps) {
     <motion.article
       whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group relative flex flex-col overflow-hidden rounded-organic border border-mist bg-white/60"
+      className="group relative flex flex-col overflow-hidden rounded-organic border border-mist bg-white/60 dark:bg-[#2a2c2a]"
     >
       <Link href={`/shop/${product.slug}`} className="flex flex-1 flex-col">
         {/* Image */}
@@ -46,8 +46,8 @@ export function ProductCard({ product }: ProductCardProps) {
           />
           {!product.inStock && (
             <div className="absolute inset-0 flex items-center justify-center bg-char/40">
-              <span className="rounded-full bg-white px-3 py-1 text-xs font-medium">
-                Out of Stock
+              <span className="rounded-full bg-white dark:bg-[#2a2c2a] px-3 py-1 text-xs font-medium">
+                {t("product.outOfStock")}
               </span>
             </div>
           )}
@@ -71,7 +71,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </span>
             {product.wholesalePrice && (
               <span className="text-xs text-moss">
-                Wholesale: {formatPrice(product.wholesalePrice)}/kg
+                {t("product.wholesale")}: {formatPrice(product.wholesalePrice)}/kg
               </span>
             )}
           </div>
@@ -88,7 +88,7 @@ export function ProductCard({ product }: ProductCardProps) {
             aria-label={`Add ${product.name} to cart`}
           >
             <ShoppingBag className="h-4 w-4" />
-            Add to cart
+            {t("product.addToCart")}
           </Button>
         </div>
       )}

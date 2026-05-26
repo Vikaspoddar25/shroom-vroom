@@ -12,6 +12,7 @@ import { useCartStore } from "@/store/cart";
 import { useCartDrawerStore } from "@/store/cart-drawer";
 import { formatPrice, DELIVERY_CONFIG } from "@/lib/content";
 import { track } from "@/lib/analytics";
+import { useLang } from "@/lib/lang";
 import type { Product } from "@/data/products";
 
 interface ProductDetailProps {
@@ -22,6 +23,7 @@ interface ProductDetailProps {
 export function ProductDetail({ product, related }: ProductDetailProps) {
   const addItem = useCartStore((s) => s.addItem);
   const openCart = useCartDrawerStore((s) => s.open);
+  const { lang, t } = useLang();
 
   const handleAdd = () => {
     addItem(product);
@@ -39,7 +41,7 @@ export function ProductDetail({ product, related }: ProductDetailProps) {
             className="mb-8 inline-flex items-center gap-2 text-sm text-char/60 hover:text-terracotta"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to shop
+            {t("product.backToShop")}
           </Link>
 
           <div className="grid gap-12 lg:grid-cols-2">
@@ -69,7 +71,7 @@ export function ProductDetail({ product, related }: ProductDetailProps) {
                   {product.tags[0]}
                 </p>
                 <h1 className="mt-2 font-serif text-display-md font-bold text-forest">
-                  {product.name}
+                  {lang === "hi" ? product.hindiName : product.name}
                 </h1>
                 <p className="mt-1 text-sm text-char/50">{product.hindiName}</p>
 
@@ -82,7 +84,7 @@ export function ProductDetail({ product, related }: ProductDetailProps) {
 
                 {product.wholesalePrice && (
                   <p className="mt-2 text-sm text-moss">
-                    Wholesale: {formatPrice(product.wholesalePrice)}/kg (bulk orders)
+                    {t("product.wholesale")}: {formatPrice(product.wholesalePrice)}/kg ({t("product.bulkOrders")})
                   </p>
                 )}
 
@@ -91,33 +93,33 @@ export function ProductDetail({ product, related }: ProductDetailProps) {
                 {product.inStock ? (
                   <Button onClick={handleAdd} size="lg" className="mt-8 w-full gap-2 sm:w-auto">
                     <ShoppingBag className="h-5 w-5" />
-                    Add to cart
+                    {t("product.addToCart")}
                   </Button>
                 ) : (
                   <p className="mt-8 rounded-organic bg-mist p-4 text-sm text-char/60">
-                    Currently out of stock. WhatsApp us to get notified when it&apos;s back.
+                    {t("product.outOfStockMsg")}
                   </p>
                 )}
 
                 {/* Delivery info */}
-                <div className="mt-6 flex items-start gap-3 rounded-lg border border-mist bg-white/50 p-4">
+                <div className="mt-6 flex items-start gap-3 rounded-lg border border-mist bg-white/50 dark:bg-[#2a2c2a] p-4">
                   <Truck className="mt-0.5 h-5 w-5 flex-shrink-0 text-moss" aria-hidden="true" />
                   <div className="text-sm text-char/60">
                     <p>
-                      Free delivery on orders above {formatPrice(DELIVERY_CONFIG.freeAbove)}.
-                      Otherwise {formatPrice(DELIVERY_CONFIG.charge)} delivery charge.
+                      {t("product.freeDeliveryAbove")} {formatPrice(DELIVERY_CONFIG.freeAbove)}.
+                      {t("product.otherwiseCharge")} {formatPrice(DELIVERY_CONFIG.charge)}.
                     </p>
                     <p className="mt-1 font-medium text-char/80">
-                      Delivering to: {DELIVERY_CONFIG.areas.join(", ")}
+                      {t("product.deliveringTo")}: {DELIVERY_CONFIG.areas.join(", ")}
                     </p>
                   </div>
                 </div>
 
                 {/* Health Benefits */}
-                <div className="mt-6 rounded-organic border border-mist bg-white/50 p-6">
+                <div className="mt-6 rounded-organic border border-mist bg-white/50 dark:bg-[#2a2c2a] p-6">
                   <div className="flex items-center gap-2">
                     <Heart className="h-5 w-5 text-terracotta" aria-hidden="true" />
-                    <h2 className="font-serif text-lg font-semibold text-forest">Health Benefits</h2>
+                    <h2 className="font-serif text-lg font-semibold text-forest">{t("product.healthBenefits")}</h2>
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-char/60">
                     {product.benefits}
@@ -134,7 +136,7 @@ export function ProductDetail({ product, related }: ProductDetailProps) {
         <Section className="bg-mist/30" aria-labelledby="related-heading">
           <Container>
             <h2 id="related-heading" className="font-serif text-display-sm font-bold text-forest">
-              You might also like
+              {t("product.youMightAlsoLike")}
             </h2>
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {related.map((p) => (

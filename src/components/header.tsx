@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ShoppingBag, Menu, X, MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/logo";
@@ -28,6 +29,7 @@ export function Header() {
   const totalItems = useCartStore((s) => s.totalItems());
   const openCart = useCartDrawerStore((s) => s.open);
   const { t } = useLang();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -54,7 +56,12 @@ export function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-char transition-colors hover:text-terracotta"
+                  className={cn(
+                    "text-sm font-medium transition-colors hover:text-terracotta",
+                    pathname.startsWith(link.href)
+                      ? "text-terracotta border-b-2 border-terracotta pb-0.5"
+                      : "text-char"
+                  )}
                 >
                   {t(link.labelKey)}
                 </Link>
@@ -130,7 +137,12 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="font-serif text-2xl font-medium text-forest transition-colors hover:text-terracotta"
+                  className={cn(
+                    "font-serif text-2xl font-medium transition-colors hover:text-terracotta",
+                    pathname.startsWith(link.href)
+                      ? "text-terracotta"
+                      : "text-forest"
+                  )}
                 >
                   {t(link.labelKey)}
                 </Link>

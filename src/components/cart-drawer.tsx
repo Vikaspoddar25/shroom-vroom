@@ -8,10 +8,12 @@ import { Button } from "@/components/ui/button";
 import { useCartStore } from "@/store/cart";
 import { useCartDrawerStore } from "@/store/cart-drawer";
 import { formatPrice, getDeliveryCharge, DELIVERY_CONFIG } from "@/lib/content";
+import { useLang } from "@/lib/lang";
 
 export function CartDrawer() {
   const { isOpen, close } = useCartDrawerStore();
   const { items, removeItem, updateQuantity, subtotal } = useCartStore();
+  const { t } = useLang();
   const sub = subtotal();
   const delivery = getDeliveryCharge(sub);
   const total = sub + delivery;
@@ -43,7 +45,7 @@ export function CartDrawer() {
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b border-mist p-6">
-              <h2 className="font-serif text-xl font-bold text-forest">Your Cart</h2>
+              <h2 className="font-serif text-xl font-bold text-forest">{t("cart.title")}</h2>
               <Button variant="ghost" size="icon" onClick={close} aria-label="Close cart">
                 <X className="h-5 w-5" />
               </Button>
@@ -54,9 +56,9 @@ export function CartDrawer() {
               {items.length === 0 ? (
                 <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
                   <ShoppingBag className="h-12 w-12 text-mist" />
-                  <p className="text-char/60">Your cart is empty</p>
+                  <p className="text-char/60">{t("cart.empty")}</p>
                   <Button variant="secondary" onClick={close} asChild>
-                    <Link href="/shop">Browse products</Link>
+                    <Link href="/shop">{t("cart.browse")}</Link>
                   </Button>
                 </div>
               ) : (
@@ -125,14 +127,14 @@ export function CartDrawer() {
               <div className="border-t border-mist p-6">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-char/70">Subtotal</span>
+                    <span className="text-char/70">{t("cart.subtotal")}</span>
                     <span className="font-medium">{formatPrice(sub)}</span>
                   </div>
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-char/70">Delivery</span>
+                    <span className="text-char/70">{t("cart.delivery")}</span>
                     <span className="font-medium">
                       {delivery === 0 ? (
-                        <span className="text-moss">FREE</span>
+                        <span className="text-moss">{t("cart.free")}</span>
                       ) : (
                         formatPrice(delivery)
                       )}
@@ -144,17 +146,17 @@ export function CartDrawer() {
                     </p>
                   )}
                   <div className="flex items-center justify-between border-t border-mist pt-2">
-                    <span className="font-medium text-char">Total</span>
+                    <span className="font-medium text-char">{t("cart.total")}</span>
                     <span className="font-serif text-lg font-bold">{formatPrice(total)}</span>
                   </div>
                 </div>
                 <Button className="mt-4 w-full" asChild>
                   <Link href="/checkout" onClick={close}>
-                    Proceed to order
+                    {t("cart.proceedToOrder")}
                   </Link>
                 </Button>
                 <Button variant="ghost" className="mt-2 w-full" onClick={close}>
-                  Continue shopping
+                  {t("cart.continueShopping")}
                 </Button>
               </div>
             )}

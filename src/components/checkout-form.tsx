@@ -154,7 +154,7 @@ export function CheckoutForm() {
                   id="checkout-name"
                   type="text"
                   {...register("name")}
-                  className="h-11 w-full rounded-lg border border-mist bg-white px-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
+                  className="h-11 w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
                 />
                 {errors.name && <p className="mt-1 text-xs text-terracotta">{errors.name.message}</p>}
               </div>
@@ -168,7 +168,7 @@ export function CheckoutForm() {
                   type="tel"
                   placeholder="9XXXXXXXXX"
                   {...register("phone")}
-                  className="h-11 w-full rounded-lg border border-mist bg-white px-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
+                  className="h-11 w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
                 />
                 {errors.phone && <p className="mt-1 text-xs text-terracotta">{errors.phone.message}</p>}
               </div>
@@ -182,7 +182,7 @@ export function CheckoutForm() {
                 id="checkout-email"
                 type="email"
                 {...register("email")}
-                className="h-11 w-full rounded-lg border border-mist bg-white px-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
+                className="h-11 w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
               />
               {errors.email && <p className="mt-1 text-xs text-terracotta">{errors.email.message}</p>}
             </div>
@@ -196,7 +196,7 @@ export function CheckoutForm() {
                 rows={3}
                 placeholder="House/Flat No., Street, Landmark..."
                 {...register("address")}
-                className="w-full rounded-lg border border-mist bg-white p-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
+                className="w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] p-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
               />
               {errors.address && <p className="mt-1 text-xs text-terracotta">{errors.address.message}</p>}
             </div>
@@ -209,7 +209,7 @@ export function CheckoutForm() {
                 <select
                   id="checkout-city"
                   {...register("city")}
-                  className="h-11 w-full rounded-lg border border-mist bg-white px-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
+                  className="h-11 w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
                 >
                   <option value="">Select city</option>
                   {DELIVERY_CONFIG.areas.map((area) => (
@@ -231,7 +231,7 @@ export function CheckoutForm() {
                   inputMode="numeric"
                   maxLength={6}
                   {...register("pincode")}
-                  className="h-11 w-full rounded-lg border border-mist bg-white px-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
+                  className="h-11 w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] px-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
                 />
                 {errors.pincode && <p className="mt-1 text-xs text-terracotta">{errors.pincode.message}</p>}
               </div>
@@ -246,7 +246,7 @@ export function CheckoutForm() {
                 rows={2}
                 placeholder="Any special instructions..."
                 {...register("notes")}
-                className="w-full rounded-lg border border-mist bg-white p-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
+                className="w-full rounded-lg border border-mist bg-white dark:bg-[#2a2c2a] p-4 text-sm focus:border-terracotta focus:outline-none focus:ring-2 focus:ring-terracotta/20"
               />
             </div>
 

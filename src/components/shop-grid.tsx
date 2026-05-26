@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { ProductCard } from "@/components/product-card";
 import type { Product } from "@/data/products";
 import { cn } from "@/lib/utils";
+import { useLang } from "@/lib/lang";
 
 interface ShopGridProps {
   products: Product[];
@@ -14,6 +15,7 @@ const filterTags = ["all", "fresh", "cooking", "wellness", "powder"];
 export function ShopGrid({ products }: ShopGridProps) {
   const [activeTag, setActiveTag] = useState("all");
   const [showInStockOnly, setShowInStockOnly] = useState(false);
+  const { t } = useLang();
 
   const filtered = useMemo(() => {
     let result = products;
@@ -38,7 +40,7 @@ export function ShopGrid({ products }: ShopGridProps) {
               "rounded-full px-4 py-2 text-sm font-medium capitalize transition-colors",
               activeTag === tag
                 ? "bg-forest text-cream"
-                : "border border-mist bg-white/50 text-char hover:bg-mist"
+                : "border border-mist bg-white/50 dark:bg-[#2a2c2a] text-char hover:bg-mist"
             )}
             aria-pressed={activeTag === tag}
           >
@@ -52,7 +54,7 @@ export function ShopGrid({ products }: ShopGridProps) {
             onChange={(e) => setShowInStockOnly(e.target.checked)}
             className="h-4 w-4 rounded border-mist text-terracotta focus:ring-terracotta"
           />
-          In stock only
+          {t("shop.inStockOnly")}
         </label>
       </div>
 
@@ -65,7 +67,7 @@ export function ShopGrid({ products }: ShopGridProps) {
         </div>
       ) : (
         <p className="py-16 text-center text-char/50">
-          No products match those filters. Try adjusting your selection.
+          {t("shop.noProducts")}
         </p>
       )}
     </div>

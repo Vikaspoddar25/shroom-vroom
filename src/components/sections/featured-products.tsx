@@ -1,13 +1,17 @@
+"use client";
+
 import { Container } from "@/components/ui/container";
 import { Section } from "@/components/ui/section";
 import { FadeIn } from "@/components/fade-in";
 import { ProductCard } from "@/components/product-card";
-import { getFeaturedProducts } from "@/lib/content";
+import { products } from "@/data/products";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useLang } from "@/lib/lang";
 
-export async function FeaturedProducts() {
-  const featured = await getFeaturedProducts();
+export function FeaturedProducts() {
+  const { t } = useLang();
+  const featured = products.filter((p) => p.featured);
 
   return (
     <Section className="bg-mist/30" aria-labelledby="featured-heading">
@@ -19,12 +23,12 @@ export async function FeaturedProducts() {
                 id="featured-heading"
                 className="font-serif text-display-sm font-bold text-forest"
               >
-                This week&apos;s harvest
+                {t("featured.heading")}
               </h2>
-              <p className="mt-2 text-char/60">Fresh picks, limited quantities.</p>
+              <p className="mt-2 text-char/60">{t("featured.subheading")}</p>
             </div>
             <Button variant="link" asChild className="hidden md:inline-flex">
-              <Link href="/shop">View all →</Link>
+              <Link href="/shop">{t("featured.viewAll")}</Link>
             </Button>
           </div>
         </FadeIn>
@@ -39,7 +43,7 @@ export async function FeaturedProducts() {
 
         <div className="mt-8 text-center md:hidden">
           <Button variant="outline" asChild>
-            <Link href="/shop">View all mushrooms</Link>
+            <Link href="/shop">{t("featured.viewAllMobile")}</Link>
           </Button>
         </div>
       </Container>
