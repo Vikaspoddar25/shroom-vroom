@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Container } from "@/components/ui/container";
-import { Section } from "@/components/ui/section";
-import { FadeIn } from "@/components/fade-in";
-import { LearnArticles } from "@/components/learn-articles";
+import { LearnContent } from "@/components/learn-content";
 
 export const metadata: Metadata = {
   title: "Learn — Recipes & Health Tips",
@@ -68,20 +65,5 @@ const articles = [
 ];
 
 export default function LearnPage() {
-  return (
-    <Section className="pt-28">
-      <Container>
-        <FadeIn>
-          <h1 className="font-serif text-display-md font-bold text-forest">
-            Recipes & Health Tips
-          </h1>
-          <p className="mt-3 max-w-xl text-lg text-char/60">
-            Indian recipes, health benefits, and tips for cooking with fresh mushrooms.
-          </p>
-        </FadeIn>
-
-        <LearnArticles articles={articles} />
-      </Container>
-    </Section>
-  );
+  return <LearnContent articles={articles} />;
 }

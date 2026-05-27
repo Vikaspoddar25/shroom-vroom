@@ -30,7 +30,7 @@ export const products: Product[] = [
     benefits:
       "High in protein & fiber. Rich in antioxidants and B-vitamins. Supports immunity, lowers cholesterol, and aids digestion. A perfect meat substitute for vegetarians.",
     imageUrl:
-      "https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=800&h=800&fit=crop",
+      "/oyster-mushroom.png",
     tags: ["fresh", "cooking", "protein-rich"],
     featured: true,
     inStock: true,

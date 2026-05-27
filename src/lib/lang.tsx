@@ -181,6 +181,69 @@ export const translations: Record<string, Record<Lang, string>> = {
   // Common
   "common.readMore": { en: "Read more", hi: "और पढ़ें" },
   "common.viewAll": { en: "View all", hi: "सभी देखें" },
+
+  // Shop page
+  "shop.title": { en: "The harvest", hi: "फसल" },
+  "shop.subtitle": {
+    en: "Every mushroom on this page was growing less than 48 hours ago. Pick your favorites — we'll handle the rest.",
+    hi: "इस पेज पर हर मशरूम 48 घंटे पहले तक उग रहा था। अपनी पसंद चुनें — बाकी हम संभालेंगे।",
+  },
+
+  // Learn page
+  "learn.title": { en: "Recipes & Health Tips", hi: "रेसिपी और स्वास्थ्य टिप्स" },
+  "learn.subtitle": {
+    en: "Indian recipes, health benefits, and tips for cooking with fresh mushrooms.",
+    hi: "भारतीय रेसिपी, स्वास्थ्य लाभ, और ताज़ा मशरूम से खाना पकाने के टिप्स।",
+  },
+
+  // Our Story page
+  "story.label": { en: "Our Story", hi: "हमारी कहानी" },
+  "story.heading": { en: "Fresh mushrooms deserve better", hi: "ताज़ा मशरूम बेहतर हकदार हैं" },
+  "story.intro": {
+    en: "Most mushrooms you find in Indian markets have been sitting around for days — losing freshness, flavor, and nutrition. We started Shroom Vroom to fix that.",
+    hi: "भारतीय बाज़ारों में मिलने वाले अधिकांश मशरूम दिनों से पड़े रहते हैं — ताज़गी, स्वाद और पोषण खोते हुए। हमने इसे ठीक करने के लिए Shroom Vroom शुरू किया।",
+  },
+  "story.threeTitle": { en: "Three friends, one farm", hi: "तीन दोस्त, एक फार्म" },
+  "story.p1": {
+    en: "In 2024, Jai, Amit, and Vikas — three friends from Rajasthan — came together with a shared passion for health-conscious food and sustainable farming.",
+    hi: "2024 में, जय, अमित और विकास — राजस्थान के तीन दोस्त — स्वास्थ्य-सचेत भोजन और टिकाऊ खेती के लिए एक साझा जुनून के साथ एक साथ आए।",
+  },
+  "story.p2": {
+    en: "Vikas had been experimenting with mushroom cultivation for years. Jai brought the business mind. Amit handled operations and delivery logistics. Together, they set up a mushroom farm in Kishangarh, Ajmer.",
+    hi: "विकास वर्षों से मशरूम की खेती में प्रयोग कर रहे थे। जय ने बिजनेस माइंड लाया। अमित ने ऑपरेशंस और डिलीवरी लॉजिस्टिक्स संभाली। साथ मिलकर, उन्होंने किशनगढ़, अजमेर में मशरूम फार्म शुरू किया।",
+  },
+  "story.p3": {
+    en: "The mission was simple: grow the freshest, cleanest mushrooms possible and deliver them to kitchens the same day they're harvested. No cold storage, no chemicals, no middlemen.",
+    hi: "मिशन सरल था: सबसे ताज़ा, सबसे शुद्ध मशरूम उगाना और उन्हें उसी दिन रसोई तक पहुँचाना। कोल्ड स्टोरेज नहीं, केमिकल नहीं, बिचौलिए नहीं।",
+  },
+  "story.p4": {
+    en: "Today, Shroom Vroom delivers fresh Oyster Mushrooms and Cordyceps Powder across India — from our farm in Kishangarh, Rajasthan to kitchens nationwide.",
+    hi: "आज, Shroom Vroom पूरे भारत में ताज़ा ऑयस्टर मशरूम और कॉर्डिसेप्स पाउडर डिलीवर करता है — किशनगढ़, राजस्थान के हमारे फार्म से देशभर की रसोई तक।",
+  },
+  "story.valuesTitle": { en: "What we stand for", hi: "हम किसके लिए खड़े हैं" },
+  "story.v1.title": { en: "Same-day freshness", hi: "उसी दिन की ताज़गी" },
+  "story.v1.text": {
+    en: "Every mushroom is harvested the same day it's delivered. No cold storage, no exceptions.",
+    hi: "हर मशरूम उसी दिन काटा जाता है जिस दिन डिलीवर किया जाता है। कोल्ड स्टोरेज नहीं, कोई अपवाद नहीं।",
+  },
+  "story.v2.title": { en: "Pesticide-free & natural", hi: "कीटनाशक-मुक्त और प्राकृतिक" },
+  "story.v2.text": {
+    en: "We grow on natural substrates without any chemicals. What you eat is as clean as it gets.",
+    hi: "हम प्राकृतिक सब्सट्रेट पर बिना किसी रसायन के उगाते हैं। जो आप खाते हैं वह पूरी तरह शुद्ध है।",
+  },
+  "story.v3.title": { en: "Compostable packaging", hi: "कम्पोस्टेबल पैकेजिंग" },
+  "story.v3.text": {
+    en: "No plastic touches your mushrooms. All packaging is eco-friendly and compostable.",
+    hi: "कोई प्लास्टिक आपके मशरूम को नहीं छूता। सभी पैकेजिंग इको-फ्रेंडली और कम्पोस्टेबल है।",
+  },
+  "story.v4.title": { en: "Direct from farm", hi: "सीधे फार्म से" },
+  "story.v4.text": {
+    en: "No middlemen, no markups. You get farm-fresh quality at honest prices.",
+    hi: "कोई बिचौलिए नहीं, कोई अतिरिक्त कीमत नहीं। आपको ईमानदार कीमत पर फार्म-ताज़ा गुणवत्ता मिलती है।",
+  },
+
+  // Testimonials
+  "testimonials.heading": { en: "What our people say", hi: "हमारे लोग क्या कहते हैं" },
 };
 
 export function LangProvider({ children }: { children: ReactNode }) {
