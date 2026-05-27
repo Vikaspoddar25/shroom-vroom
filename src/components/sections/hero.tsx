@@ -57,7 +57,7 @@ export function HeroSection() {
           >
             <div className="absolute right-0 top-0 h-[80%] w-[75%] overflow-hidden rounded-organic shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=800&h=900&fit=crop"
+                src="/oyster-mushroom.png"
                 alt="Fresh oyster mushrooms arranged on a wooden surface"
                 fill
                 className="object-cover"
