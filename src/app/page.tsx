@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/sections/hero";
+import { HarvestStory } from "@/components/harvest/harvest-section";
 import { MarqueeStrip } from "@/components/sections/marquee-strip";
 import { ValueProps } from "@/components/sections/value-props";
 import { FeaturedProducts } from "@/components/sections/featured-products";
@@ -12,6 +13,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <HarvestStory />
       <MarqueeStrip />
       <ValueProps />
       <FeaturedProducts />

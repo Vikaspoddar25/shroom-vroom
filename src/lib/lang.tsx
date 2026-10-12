@@ -242,6 +242,39 @@ export const translations: Record<string, Record<Lang, string>> = {
     hi: "कोई बिचौलिए नहीं, कोई अतिरिक्त कीमत नहीं। आपको ईमानदार कीमत पर फार्म-ताज़ा गुणवत्ता मिलती है।",
   },
 
+  // Harvest scroll story
+  "harvest.scroll": { en: "Scroll", hi: "स्क्रॉल करें" },
+  "harvest.k1.kicker": { en: "Kishangarh, Rajasthan", hi: "किशनगढ़, राजस्थान" },
+  "harvest.k1.title": { en: "Grown with patience.", hi: "धैर्य से उगाया।" },
+  "harvest.k1.text": {
+    en: "Oyster mushrooms fruit on natural substrate. No chemicals, no shortcuts.",
+    hi: "ऑयस्टर मशरूम प्राकृतिक सब्सट्रेट पर उगते हैं। कोई रसायन नहीं, कोई शॉर्टकट नहीं।",
+  },
+  "harvest.k2.kicker": { en: "First light", hi: "भोर की पहली किरण" },
+  "harvest.k2.title": { en: "Ready at dawn.", hi: "सुबह तैयार।" },
+  "harvest.k2.text": {
+    en: "Every cluster is checked by hand before it is picked.",
+    hi: "हर गुच्छा तोड़ने से पहले हाथ से जाँचा जाता है।",
+  },
+  "harvest.k3.kicker": { en: "The harvest", hi: "तुड़ाई" },
+  "harvest.k3.title": { en: "Picked by hand.", hi: "हाथ से तोड़ा।" },
+  "harvest.k3.text": {
+    en: "A gentle twist, never a blade. The stem stays whole and the flavour stays in.",
+    hi: "हल्का सा मोड़, चाकू नहीं। डंठल साबुत, स्वाद भरपूर।",
+  },
+  "harvest.k4.kicker": { en: "Straight to you", hi: "सीधे आप तक" },
+  "harvest.k4.title": { en: "Fresh, down to the gills.", hi: "गिल्स तक ताज़ा।" },
+  "harvest.k4.text": {
+    en: "Harvested today and at your door within 24 hours.",
+    hi: "आज तोड़ा, 24 घंटे में आपके दरवाज़े पर।",
+  },
+  "harvest.k5.title": { en: "Taste the difference.", hi: "फ़र्क़ चखिए।" },
+  "harvest.k5.cta": { en: "Shop fresh mushrooms", hi: "ताज़ा मशरूम खरीदें" },
+  "harvest.alt": {
+    en: "A hand harvesting a cluster of oyster mushrooms from a grow bag",
+    hi: "ग्रो बैग से ऑयस्टर मशरूम का गुच्छा तोड़ता हुआ हाथ",
+  },
+
   // Testimonials
   "testimonials.heading": { en: "What our people say", hi: "हमारे लोग क्या कहते हैं" },
 };
