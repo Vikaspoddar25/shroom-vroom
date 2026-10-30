@@ -25,7 +25,11 @@ export const metadata: Metadata = {
   },
   description:
     "Farm-fresh, pesticide-free oyster mushrooms & cordyceps powder delivered within 24 hours across India. Farm in Kishangarh, Rajasthan.",
-  metadataBase: new URL("https://shroom-vroom.vercel.app"),
+  metadataBase: new URL("https://shroom-vroom.com"),
+  icons: {
+    icon: "/shroom-vroom-icon.png",
+    apple: "/shroom-vroom-icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -73,14 +77,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Shroom Vroom",
-              url: "https://shroomvroom.com",
-              logo: "https://shroomvroom.com/logo.svg",
+              url: "https://shroom-vroom.com",
+              logo: "https://shroom-vroom.com/shroom-vroom-logo.jpeg",
               description:
                 "Farm-fresh gourmet and exotic mushrooms delivered to your door. Same-day delivery available.",
               address: {
                 "@type": "PostalAddress",
-                addressRegion: "OR",
-                addressCountry: "US",
+                addressLocality: "Kishangarh",
+                addressRegion: "Rajasthan",
+                addressCountry: "IN",
               },
             }),
           }}
